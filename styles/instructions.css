@@ -23,7 +23,8 @@ background-color: #E67E22;
 
 }
 .parrafo{
-    
+    background-color: aliceblue;
+    opacity: 0.8;
     position: absolute;
     top: 150px;
     right: 100px;
@@ -33,7 +34,7 @@ background-color: #E67E22;
     font-size: 30px;
     border-style: groove;
     border: solid;
-    border-color: black;
+    border-color: green;
     border-radius: 10px;
 
 }

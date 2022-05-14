@@ -1,0 +1,42 @@
+.fondo{
+    opacity: 0.6;
+    margin:0 0;
+}
+
+.start-game{
+position: absolute;
+bottom: 100px;
+right: 300px;
+width: 100px;
+border-radius: 10px;
+border-color:#E6AB22;
+background-color: #E67E22;
+
+
+
+ 
+}
+.start-game a{
+    text-decoration: none;
+    font-size: 24px;
+    color: white;
+
+}
+.parrafo{
+    
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    font-size: 30px;
+    border-style: groove;
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+
+}
+
+
+

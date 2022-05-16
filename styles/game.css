@@ -1,5 +1,5 @@
 body{
-    background-color: #FDEBD0 ;
+    background-color:white ;
 }
 
 .canvas{
@@ -14,7 +14,7 @@ body{
     top: 25px;
 }
 ul{
-    background-color:peru;
+    background-color:#7D1885;
     list-style-type: none;
     display: flex;
     justify-content: space-around;

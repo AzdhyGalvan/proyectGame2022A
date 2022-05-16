@@ -10,11 +10,10 @@ class Background{
    
   
     draw(){
-        this.x --; 
+       /* this.x --; 
         if(this.x < -canvas.width){ 
             this.x=0
-        }
-  
+        }*/
     ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
       ctx.drawImage(
           this.image,
@@ -29,23 +28,36 @@ class Background{
     }
 
     class Personaje{
-        constructor(arrImg,x,y,w,h){
+        constructor(arrImg,arrImg2,x,y,w,h){
             this.x=x;
             this.y=y;
             this.width=w;
             this.height=h;
+
             this.img1=new Image()
             this.img1.src=arrImg[0];
             this.img2=new Image()
             this.img2.src=arrImg[1]
-
             this.imgOfficial=this.img1
+
+            this.img3=new Image()
+            this.img3.src=arrImg2[0]
+            this.img4=new Image()
+            this.img4.src=arrImg2[1]
+            this.imgOfficial2=this.img3
+
         }
-        draw(){
+        drawRigth(){
             if(frames % 40 ===0){
                 this.imgOfficial=this.imgOfficial=== this.img1 ? this.img2 : this.img1;
             }
             ctx.drawImage(this.imgOfficial,this.x,this.y,this.width,this.height)
+        }
+        drawLeft(){
+            if(frames % 40 ===0){
+                this.imgOfficial2=this.imgOfficial2=== this.img3 ? this.img4 : this.img3;
+            }
+            ctx.drawImage(this.imgOfficial2,this.x,this.y,this.width,this.height)
         }
         collision(item){
             return (
@@ -57,26 +69,36 @@ class Background{
         }
     }
 
-    class Enemy {
-        constructor(x,y,w,h){
-            this.x=x
-            this.y=y
-            this.width=w
-            this.height=h
-                
-        }
-    }
 
-    class Despensa extends Enemy{
-        constructor(w,h,y){
-            super(canvas.width,y,w,h)
+
+    class Despensa {
+        constructor(x,y,w,h){
+            this.x=x;
+            this.y=y;
+            this.width=w;
+            this.height=h;
             this.image=new Image()
             this.image.src="../images/despensa.png"
         }
         draw(){
-            this.y -=4;
+            this.y +=1;
             ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
+            console.log("soy un carro")
         }
     }
   
-  
+    class Vinos {
+        constructor(x,y,w,h){
+            this.x=x;
+            this.y=y;
+            this.width=w;
+            this.height=h;
+            this.image=new Image()
+            this.image.src="../images/vinos.png"
+        }
+        draw(){
+            this.y +=1;
+            ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
+            console.log("soy un carro")
+        }
+    }

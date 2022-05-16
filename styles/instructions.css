@@ -6,7 +6,7 @@
 .start-game{
 position: absolute;
 bottom: 100px;
-right: 300px;
+right: 350px;
 width: 100px;
 border-radius: 10px;
 border-color:#E6AB22;
@@ -23,20 +23,32 @@ background-color: #E67E22;
 
 }
 .parrafo{
-    background-color: aliceblue;
+    
+    background-color: #7D1885;
     opacity: 0.8;
     position: absolute;
-    top: 150px;
-    right: 100px;
+    top: 30px;
+    right: 150px;
     width: 500px;
-    height: 400px;
+    height: 600px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     border-style: groove;
     border: solid;
     border-color: green;
     border-radius: 10px;
 
+}
+
+.instru{
+    font-size: 30px;
+    font-weight:bold;
+    color:white;
+
+}
+.todo{
+    color: white;
+    
 }
 
 

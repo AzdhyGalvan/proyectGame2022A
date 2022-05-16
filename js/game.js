@@ -1,13 +1,20 @@
 const bg= new Background()
-const personaje=new Personaje(personImg,100,250,200,450)
+const personaje=new Personaje(personImg,reverseImg,100,250,200,450)
+
+
+
      
 function upDate(){
     frames ++;
     ctx.clearRect(0,0,canvas.width,canvas.height)
     bg.draw()
-    personaje.draw()
+    //audio.play()
     generateObstacules()
     drawObstacules()
+    generateVinos()
+    drawVinos()
+
+
 if(requestId){
     requestAnimationFrame(upDate)
 }
@@ -21,47 +28,77 @@ function startGame(){
 
 function generateObstacules(){
 
-if(frames %170 === 0 || frames %60 === 0){
-    let y = Math.floor(Math.random()* (750-10)) +10;
-    let h = Math.floor(Math.random()* (750-10)) +10;
+if(frames %150 === 0 ){
+    let x = Math.floor(Math.random()* (1100-50)) +10;
+    
 
-    if(h<250 && y >=65 && y <250){
-        const obs =new Despensa(0,y,0,h);
-        arr.push(obs)
+        const obs =new Despensa(x,50,80,90)
+                arr.push(obs)
+    
+
+}
+
+}
+function generateVinos(){
+
+    if(frames %500 === 0 ){
+        let x = Math.floor(Math.random()* (1100-70)) +1;
+        
+    
+            const obs =new Vinos (x,50,80,90)
+                    arrV.push(obs)
+        
+    
     }
-
-}
 }
 
+function drawVinos (){
+    arrV.forEach((obs,index_obs)=>{
+        obs.draw();
+        console.log("que se dibuja")
+
+       /* if(personaje.collision(obs)){
+            console.log("Me esta tocando")
+            requestId=undefined
+        }*/
+
+
+
+    })
+}
 function drawObstacules (){
     arr.forEach((obs,index_obs)=>{
         obs.draw();
         console.log("que se dibuja")
+
+       /* if(personaje.collision(obs)){
+            console.log("Me esta tocando")
+            requestId=undefined
+        }*/
+
+
+
     })
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
 startGame()
+
 addEventListener("keydown",(event)=>{
     event.preventDefault() 
-    //izq
-    if(event.keyCode ===38){
-        personaje.y -=20;
-    }
-    //derecha
-    if(event.keyCode=== 40){
-        personaje.y += 20;
-    }
+   
+   switch(event.keyCode){
+       case 39:
+           personaje.drawRigth();
+           console.log("derecha")
+           break;
+        case 37:
+            personaje.drawLeft();
+            console.log("izq")
+            break;
+
+   }
     
     }  )
+   

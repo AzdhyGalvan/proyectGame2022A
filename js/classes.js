@@ -33,7 +33,7 @@ class Background{
             this.y=y;
             this.width=w;
             this.height=h;
-
+            this.direction="der"
             this.img1=new Image()
             this.img1.src=arrImg[0];
             this.img2=new Image()
@@ -44,28 +44,43 @@ class Background{
             this.img3.src=arrImg2[0]
             this.img4=new Image()
             this.img4.src=arrImg2[1]
-            this.imgOfficial2=this.img3
+          
 
         }
-        drawRigth(){
-            if(frames % 40 ===0){
-                this.imgOfficial=this.imgOfficial=== this.img1 ? this.img2 : this.img1;
+        draw(){
+            //ctx.fillRect(this.x,this.y,this.width,this.height)
+            
+            switch(this.direction){
+                case "izq":
+                    if(frames % 40 ===0){
+                        this.imgOfficial=this.imgOfficial=== this.img3 ? this.img4 : this.img3;
+                    }
+
+                    ctx.drawImage(this.imgOfficial,this.x,this.y,this.width,this.height)
+
+                break;
+
+
+                default:
+                    if(frames % 40 ===0){
+                        this.imgOfficial=this.imgOfficial=== this.img1 ? this.img2 : this.img1;
+                    }
+                    ctx.drawImage(this.imgOfficial,this.x,this.y,this.width,this.height)
+                break;
+               
             }
-            ctx.drawImage(this.imgOfficial,this.x,this.y,this.width,this.height)
+    
         }
-        drawLeft(){
-            if(frames % 40 ===0){
-                this.imgOfficial2=this.imgOfficial2=== this.img3 ? this.img4 : this.img3;
-            }
-            ctx.drawImage(this.imgOfficial2,this.x,this.y,this.width,this.height)
-        }
+       
         collision(item){
+           
             return (
                 this.x < item.x + item.width &&
                 this.x + this.width > item.x &&
                 this.y < item.y + item.height &&
                 this.y + this.height > item.y
             )
+            
         }
     }
 
@@ -83,7 +98,7 @@ class Background{
         draw(){
             this.y +=1;
             ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
-            console.log("soy un carro")
+            
         }
     }
   
@@ -99,6 +114,6 @@ class Background{
         draw(){
             this.y +=1;
             ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
-            console.log("soy un carro")
+        
         }
     }

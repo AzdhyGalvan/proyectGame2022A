@@ -1,6 +1,11 @@
+let audio= new Audio()
+audio.src="../audio/sfx-piano-fantasia2.mp3"
+audio.loop=true
+
 const spans = document.querySelectorAll('.word span');
 
 spans.forEach((span, idx) => {
+	audio.play()
 	span.addEventListener('click', (e) => {
 		e.target.classList.add('active');
 	});
@@ -11,6 +16,9 @@ spans.forEach((span, idx) => {
 	// Initial animation
 	setTimeout(() => {
 		span.classList.add('active');
-	}, 750 * (idx+1))
+	}, 1050 * (idx+1))
 });
   
+
+
+

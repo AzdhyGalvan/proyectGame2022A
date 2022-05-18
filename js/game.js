@@ -1,6 +1,7 @@
 const bg= new Background()
 const personaje=new Personaje(personImg,reverseImg,100,420,150,250)
-
+const imgOver = new Image()
+imgOver.src="../images/Game Over.png"
 
 
      
@@ -36,10 +37,10 @@ function startGame(){
 
 function gameOver(){
     
-    ctx.font="80px italic"
 
-    ctx.fillText(`Game Over`,410,300)
-    ctx.fillText(` Your score was ${score}`,300,370)
+    ctx.drawImage(imgOver,300,200,200,100)
+    ctx.font="80px italic"
+    ctx.fillText(`Score:${score}`,300,370)
 
     audio.pause()
     requestId=undefined

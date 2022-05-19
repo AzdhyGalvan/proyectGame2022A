@@ -3,6 +3,9 @@ const personaje=new Personaje(personImg,reverseImg,100,420,150,250)
 const imgOver = new Image()
 imgOver.src="../images/Game Over.png"
 
+const imgWon= new Image()
+imgWon.src="../images/youwon.png"
+
 
      
 function upDate(){
@@ -24,6 +27,10 @@ if (lives <= 0){
 }
 
 
+if (score === 500){
+    winGame()
+}
+
 if(requestId){
     requestAnimationFrame(upDate)
 }
@@ -38,14 +45,19 @@ function startGame(){
 function gameOver(){
     
 
-    ctx.drawImage(imgOver,300,200,200,100)
-    ctx.font="80px italic"
-    ctx.fillText(`Score:${score}`,300,370)
+    ctx.drawImage(imgOver,400,200,600,400)
+    ctx.font="60px italic"
+    ctx.fillText(`Score:${score}`,400,570)
 
     audio.pause()
     requestId=undefined
 
 
+}
+
+function winGame(){
+ctx.drawImage(imgWon,300,200,600,400)
+requestId=undefined
 }
 
 
@@ -85,7 +97,7 @@ function drawVinos (){
        if(personaje.collision(vinos)){
             arrV.splice(index_obs,1)
             lives -=1;
-           
+           audioLives.play()
         }
 
 

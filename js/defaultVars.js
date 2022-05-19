@@ -13,6 +13,11 @@ let audio=new Audio()
 audio.src="../audio/supermarket-sound-effects.mp3"
 audio.loop=true
 
+let audioLives= new Audio()
+audioLives.src="../audio/incorrecto.mp3"
+audio.loop=true
+
+
 
 const personImg=["../images/img1.png","../images/img2.png"]
 const reverseImg=["../images/reverse1.png","../images/reverse2.png"]

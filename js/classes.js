@@ -48,6 +48,13 @@ class Background{
 
         }
         draw(){
+            if (this.x <= 0){
+                this.x=2
+            }
+            if (this.x >= canvas.width){
+                this.x= canvas.width
+            }
+
             //ctx.fillRect(this.x,this.y,this.width,this.height)
             
             switch(this.direction){

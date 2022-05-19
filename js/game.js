@@ -76,7 +76,6 @@ function gameOver(){
     ctx.drawImage(imgOver,400,200,600,400)
     ctx.font="60px italic"
     ctx.fillText(`Score:${score}`,400,570)
-
     audio.pause()
     requestId=undefined
 
@@ -86,6 +85,7 @@ function gameOver(){
 function winGame(){
 ctx.drawImage(imgWon,300,200,600,400)
 requestId=undefined
+audio.pause()
 }
 
 function reset(){
@@ -97,7 +97,7 @@ function reset(){
 
 function generateObstacules(){
 
-if(frames %120 === 0 ){
+if(frames %100 === 0 ){
     let x = Math.floor(Math.random()* (1100-50)) +10;
     
 

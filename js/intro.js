@@ -1,11 +1,12 @@
-const audio= new Audio()
-audio.src="../audio/sfx-piano-fantasia2.mp3"
-audio.loop=true
+const music = new Audio()
+music.src="../audio/donkey-kong-game-boy.mp3"
+music.loop=true
+
 
 const spans = document.querySelectorAll('.word span');
 
 spans.forEach((span, idx) => {
-	audio.play()
+	music.play()
 	span.addEventListener('click', (e) => {
 		e.target.classList.add('active');
 	});

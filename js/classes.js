@@ -51,8 +51,8 @@ class Background{
             if (this.x <= 0){
                 this.x=2
             }
-            if (this.x >= canvas.width){
-                this.x= canvas.width
+            if (this.x +this.width >= canvas.width){
+                this.x = canvas.width - this.width
             }
 
             //ctx.fillRect(this.x,this.y,this.width,this.height)
@@ -102,8 +102,9 @@ class Background{
             this.image=new Image()
             this.image.src="../images/despensa.png"
         }
-        draw(){
-            this.y +=1;
+        draw(velocidad){
+            
+            this.y +=velocidad;
             ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
             
         }
@@ -118,8 +119,8 @@ class Background{
             this.image=new Image()
             this.image.src="../images/vinos.png"
         }
-        draw(){
-            this.y +=1;
+        draw(velocidad){
+            this.y +=velocidad;
             ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
         
         }

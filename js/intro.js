@@ -1,4 +1,4 @@
-let audio= new Audio()
+const audio= new Audio()
 audio.src="../audio/sfx-piano-fantasia2.mp3"
 audio.loop=true
 

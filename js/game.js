@@ -8,8 +8,9 @@ imgWon.src="../images/youwon.png"
 
 
      
-function upDate(){
+function upDate(timer){
     frames ++;
+    time --;
     ctx.clearRect(0,0,canvas.width,canvas.height)
     bg.draw()
     //audio.play()
@@ -19,8 +20,34 @@ function upDate(){
     generateVinos()
     drawVinos()
     ctx.font="40px Arial "  
-ctx.fillText(`Score: ${score}`,170,40)
-ctx.fillText(`Lives: ${lives}`,870,40)
+    ctx.fillText(`Score: ${score}`,170,40)
+    ctx.fillText(`Lives: ${lives}`,870,40)
+    ctx.fillText(`Time: ${time}`,470,40)
+console.log("que es timer",timer)
+
+
+if(start){
+    stopTime = timer + stopIn;
+    start = false;
+}else{
+    
+    if(timer >= stopTime){
+        stop = true;
+    }
+}
+
+if(time <= 15){
+    speed =5;
+}
+
+timeTillStop = stopTime - timer;
+time=Math.floor(timeTillStop/1000)
+
+
+if (time === 0){
+    gameOver()
+}
+
 
 if (lives <= 0){
     gameOver()
@@ -33,6 +60,7 @@ if (score === 500){
 
 if(requestId){
     requestAnimationFrame(upDate)
+
 }
 
 }
@@ -60,12 +88,16 @@ ctx.drawImage(imgWon,300,200,600,400)
 requestId=undefined
 }
 
+function reset(){
+
+}
+
 
 
 
 function generateObstacules(){
 
-if(frames %150 === 0 ){
+if(frames %120 === 0 ){
     let x = Math.floor(Math.random()* (1100-50)) +10;
     
 
@@ -78,7 +110,7 @@ if(frames %150 === 0 ){
 }
 function generateVinos(){
 
-    if(frames %500 === 0 ){
+    if(frames %450 === 0 ){
         let x = Math.floor(Math.random()* (1100-70)) +1;
         
     
@@ -91,7 +123,7 @@ function generateVinos(){
 
 function drawVinos (){
     arrV.forEach((vinos,index_obs)=>{
-        vinos.draw();
+        vinos.draw(speed);
       
 
        if(personaje.collision(vinos)){
@@ -108,7 +140,7 @@ function drawObstacules (){
     arr.forEach((obs,index_obs)=>{
 
 
-        obs.draw();
+        obs.draw(speed);
     
         if(personaje.collision(obs)){
             arr.splice(index_obs,1)

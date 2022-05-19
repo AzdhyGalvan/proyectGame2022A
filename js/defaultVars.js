@@ -7,15 +7,24 @@ let arr=[];
 let lives= 3;
 let arrV=[];
 let score=0;
-
+let speed= 1;
+let start=true;
+let stopIn=32000;
+let stopTime=1;
+let stop=false;
+let timeTillStop=1;
+let time=60;
 
 let audio=new Audio()
 audio.src="../audio/supermarket-sound-effects.mp3"
 audio.loop=true
+audio.level= 0.3;
 
 let audioLives= new Audio()
 audioLives.src="../audio/incorrecto.mp3"
 audio.loop=true
+
+
 
 
 

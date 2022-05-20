@@ -23,7 +23,7 @@ function upDate(timer){
     ctx.fillText(`Score: ${score}`,170,40)
     ctx.fillText(`Lives: ${lives}`,870,40)
     ctx.fillText(`Time: ${time}`,470,40)
-console.log("que es timer",timer)
+
 
 
 if(start){
@@ -39,6 +39,11 @@ if(start){
 if(time <= 15){
     speed =5;
 }
+
+if (time === 40){
+    speed =3
+}
+
 
 timeTillStop = stopTime - timer;
 time=Math.floor(timeTillStop/1000)
@@ -73,19 +78,22 @@ function startGame(){
 function gameOver(){
     
 
-    ctx.drawImage(imgOver,400,200,600,400)
+    ctx.drawImage(imgOver,350,200,600,400)
     ctx.font="60px italic"
     ctx.fillText(`Score:${score}`,400,570)
     audio.pause()
     requestId=undefined
+    ctx.font="40px italic"
+    ctx.fillText(`Si quieres reiniciar,haz refresh a la pagina`,200,690)
 
 
 }
 
 function winGame(){
-ctx.drawImage(imgWon,300,200,600,400)
+ctx.drawImage(imgWon,350,200,600,400)
 requestId=undefined
 audio.pause()
+ctx.fillText(`Si quieres reiniciar,haz refresh a la pagina`,250,690)
 }
 
 function reset(){
